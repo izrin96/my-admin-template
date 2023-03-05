@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   server: {
     port: 44463,
+    host: true,
     proxy: {
       "/api": "http://localhost:5057",
       "/graphql": {

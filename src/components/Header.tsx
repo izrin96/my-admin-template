@@ -41,14 +41,15 @@ function Profile() {
       position="bottom-end"
     >
       <Menu.Target>
-        <div className="flex gap-2 cursor-pointer">
-          <img
-            className="rounded-full"
-            src={`https://source.boringavatars.com/beam/34/${"Shahredza Izrin Bin Shahbudin"}?colors=e0dc8b,f6aa3d,ed4c57,574435,6cc4b9`}
-            alt="Profile Picture"
-          />
-          <div className="flex flex-col">
-            <span className="text-sm font-semibold">
+        <div className="gap-2 cursor-pointer flex">
+          <div className="rounded-full w-[34px] h-[34px]">
+            <img
+              src={`https://source.boringavatars.com/beam/34/${"Shahredza Izrin Bin Shahbudin"}?colors=e0dc8b,f6aa3d,ed4c57,574435,6cc4b9`}
+              alt="Profile Picture"
+            />
+          </div>
+          <div className="sm:flex flex-col hidden">
+            <span className="text-sm font-semibold truncate xl:w-full lg:w-28 w-20">
               Shahredza Izrin Bin Shahbudin
             </span>
             <span className="text-xs">132327 - Admin</span>
@@ -64,22 +65,29 @@ function Profile() {
   );
 }
 
-function Header() {
+function Header({
+  toggleOpen,
+}: {
+  toggleOpen: React.MouseEventHandler<HTMLButtonElement>;
+}) {
   const { theme, setTheme } = useTheme();
   return (
     <header className="sticky top-0 z-40 w-full border-b border-b-gray-200 bg-white/80 dark:border-b-gray-800 dark:bg-black/80 saturate-150 backdrop-blur">
-      <div className="flex h-14 items-center mx-4">
+      <div className="flex justify-between h-14 items-center mx-4">
         <div className="flex items-center gap-4">
           <div className="cursor-pointer flex items-center gap-2">
-            <span className="font-bold dark:text-gray-300 text-lg">
+            <Button onClick={(e) => toggleOpen(e)}>toggle</Button>
+            <span className="font-bold truncate dark:text-gray-300 text-lg">
               Prime Interface
             </span>
             <Badge variant="filled">Beta</Badge>
           </div>
-          <NavigationMenuDemo />
+          <div className="hidden lg:block">
+            <NavigationMenuDemo />
+          </div>
           <div
             onClick={() => openSpotlight()}
-            className="flex justify-between items-center bg-white/60 hover:bg-gray-50 dark:bg-gray-900/60 dark:hover:bg-black rounded-md border border-gray-300 dark:border-gray-800 px-3 h-[37px] w-[250px] text-sm cursor-pointer"
+            className="hidden md:flex justify-between items-center bg-white/60 hover:bg-gray-50 dark:bg-gray-900/60 dark:hover:bg-black rounded-md border border-gray-300 dark:border-gray-800 px-3 h-[37px] w-[240px] text-sm cursor-pointer"
           >
             <div>Search</div>
             <div className="flex items-center">
@@ -91,7 +99,7 @@ function Header() {
             </div>
           </div>
         </div>
-        <div className="flex flex-1 items-center gap-4 justify-end">
+        <div className="flex items-center gap-4">
           <div className="flex gap-2">
             <Notification />
             <Button

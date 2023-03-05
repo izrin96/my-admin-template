@@ -42,7 +42,7 @@ function Breadcrumb() {
   return (
     <ol
       role="list"
-      className="flex items-center gap-1 text-sm p-2 border-b bg-white dark:bg-black dark:border-b-gray-800"
+      className="flex truncate items-center gap-1 text-sm p-2 border-b bg-white dark:bg-black dark:border-b-gray-800"
     >
       <li>
         <a href="#" className="flex items-center gap-2">
@@ -78,8 +78,8 @@ function DashboardTable() {
   return (
     <Tabs initialValue="1" hideBorder hideDivider>
       <div className="mx-2">
-        <Tabs.Item label="All Ticket" value="1">
-          <Card>All ticket table here</Card>
+        <Tabs.Item label="Normal Ticket" value="1">
+          <Card>Normal ticket table here</Card>
         </Tabs.Item>
         <Tabs.Item label="Hard Down Ticket" value="2">
           <Card>All hard down ticket table here</Card>
@@ -119,7 +119,7 @@ function Card({
 
 function Stat() {
   return (
-    <div className="p-2 grid grid-cols-4 gap-2">
+    <div className="p-2 grid xl:grid-cols-4 lg:grid-cols-2 gap-2">
       {new Array(4).fill(null).map((a, i) => (
         <Card key={i}>
           <div className="flex">

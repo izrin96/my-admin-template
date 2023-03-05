@@ -64,7 +64,7 @@ function App() {
               <NotificationsProvider>
                 <ModalsProvider>
                   <Layout>
-                    <div className="h-[2000px]">
+                    <div className="h-[2000px] overflow-hidden">
                       <Page />
                     </div>
                   </Layout>
