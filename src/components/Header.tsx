@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Kbd, Menu, Badge } from "@mantine/core";
 import { Button } from "@/components/ui/button";
 import { openSpotlight } from "@mantine/spotlight";
-import { IconMoon, IconSun, IconBell } from "@tabler/icons-react";
+import { IconMoon, IconSun, IconBell, IconMenu2 } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
 import {
   Popover,
@@ -76,8 +76,14 @@ function Header({
       <div className="flex justify-between h-14 items-center mx-4">
         <div className="flex items-center gap-4">
           <div className="cursor-pointer flex items-center gap-2">
-            <Button onClick={(e) => toggleOpen(e)}>toggle</Button>
-            <span className="font-bold truncate dark:text-gray-300 text-lg">
+            <Button
+              variant="ghost"
+              onClick={(e) => toggleOpen(e)}
+              className="p-2 md:hidden"
+            >
+              <IconMenu2 size={20} />
+            </Button>
+            <span className="font-bold truncate dark:text-gray-300 text-lg sm:block hidden">
               Prime Interface
             </span>
             <Badge variant="filled">Beta</Badge>
