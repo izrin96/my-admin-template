@@ -9,11 +9,7 @@ function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-[#fafafa] font-sans text-gray-900 antialiased dark:bg-[#0c0c0c] dark:text-gray-300">
       <Header toggleOpen={() => setSidebarOpen(!sidebarOpen)} />
       <Sidebar opened={sidebarOpen} />
-      <main
-        className={cn("md:ml-[240px]", sidebarOpen ? "hidden md:block" : "")}
-      >
-        {children}
-      </main>
+      <main className={cn("md:ml-[240px]")}>{children}</main>
     </div>
   );
 }
